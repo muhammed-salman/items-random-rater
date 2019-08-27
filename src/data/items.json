@@ -1,0 +1,40 @@
+{
+    "books":[
+        {
+            "title": "Html & CSS Design & Build website",
+            "ratings": 5
+        },
+        {
+            "title": "Database System Concepts",
+            "ratings": 6
+        },
+        {
+            "title": "Software Testing",
+            "ratings": 8
+        },
+        {
+            "title": "Fundamentals of Database System",
+            "ratings": 7
+        },
+        {
+            "title": "Javascript & Jquery",
+            "ratings": 7
+        },
+        {
+            "title": "Python Crash Course",
+            "ratings": 8
+        },
+        {
+            "title": "Automate Boring Stuff with Python",
+            "ratings": 7
+        },    
+        {
+            "title": "Design Patterns",
+            "ratings": 6
+        },
+        {
+            "title": "Data Mining Concepts",
+            "ratings": 9
+        }
+    ]  
+}
