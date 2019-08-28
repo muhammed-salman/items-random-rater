@@ -1,0 +1,17 @@
+$myBlack: #343a40;
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: $myBlack;
+    padding: 0.5rem 1rem;
+}
+
+.header--top{
+    color: #fff;
+    font-weight: 900;
+    background-color: $myBlack;
+}

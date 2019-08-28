@@ -6,35 +6,35 @@
         },
         {
             "title": "Database System Concepts",
-            "ratings": 6
+            "ratings": 4
         },
         {
             "title": "Software Testing",
-            "ratings": 8
+            "ratings": 4
         },
         {
             "title": "Fundamentals of Database System",
-            "ratings": 7
+            "ratings": 2
         },
         {
             "title": "Javascript & Jquery",
-            "ratings": 7
+            "ratings": 4
         },
         {
             "title": "Python Crash Course",
-            "ratings": 8
+            "ratings": 3
         },
         {
             "title": "Automate Boring Stuff with Python",
-            "ratings": 7
+            "ratings": 1
         },    
         {
             "title": "Design Patterns",
-            "ratings": 6
+            "ratings": 3
         },
         {
             "title": "Data Mining Concepts",
-            "ratings": 9
+            "ratings": 5
         }
     ]  
 }
