@@ -56,7 +56,7 @@ class ItemList extends Component{
                         <td key={book.title}>{book.title}</td>
                         <td key={i+'-ratings'}>{this.generateStars(book.ratings)}</td>
                         <td key={i+'-rateit'}>
-                            <Link to='/rater'>
+                            <Link to={`/rater/${book.title}`}>
                                 <button className="btn btn-primary">Rate It!</button>
                             </Link>
                         </td> 

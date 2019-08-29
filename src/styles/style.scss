@@ -15,3 +15,11 @@ $myBlack: #343a40;
     font-weight: 900;
     background-color: $myBlack;
 }
+
+.fa-star[clicked]:hover{
+    color: #1196e4;
+}
+
+#rater-message{
+    display: none;
+}

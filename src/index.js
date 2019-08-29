@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-
 import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -27,7 +26,7 @@ const store = createStore(
       <BrowserRouter>
         <AppContainer>
           <Route path="/" exact component={App} />
-          <Route path="/rater" component={Rater} />
+          <Route path="/rater/:title" component={Rater} />
         </AppContainer>
       </BrowserRouter>
     </Provider>,

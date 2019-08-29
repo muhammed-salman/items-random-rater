@@ -12,13 +12,7 @@ class App extends Component {
     super(props);
     this.props.loadBooks();
   }
-  componentWillUnmount(){
-    console.log('App Unmounted');
-  }
-  componentDidMount()
-  {
-    console.log('App Mounted');
-  }
+ 
   render(){
       const {books} = this.props;
       if(!books.error)
