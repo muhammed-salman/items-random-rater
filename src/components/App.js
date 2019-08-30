@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-// import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loadBooks } from '../actions/index';
@@ -18,6 +18,9 @@ class App extends Component {
       if(!books.error)
         return (
           <div>
+            <Link to='randomrater'>
+              <button className="btn btn-primary mb-3">Go to Random Rater</button>
+            </Link>
             <ItemList books={books} />
           </div>
         );

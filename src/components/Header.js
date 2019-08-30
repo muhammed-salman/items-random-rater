@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = (props) => {
+const Header = () => {
   return(
     <div className="header--top mb-5">
       <div className="alert">

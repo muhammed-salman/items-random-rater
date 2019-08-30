@@ -15,6 +15,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import App from './components/App';
 import AppContainer from './components/AppContainer';
 import Rater from './containers/Rater';
+import RandomRater from './containers/RandomRater';
 import reducers from './reducers';
 
 const store = createStore(
@@ -27,6 +28,7 @@ const store = createStore(
         <AppContainer>
           <Route path="/" exact component={App} />
           <Route path="/rater/:title" component={Rater} />
+          <Route path="/randomrater" component={RandomRater} />
         </AppContainer>
       </BrowserRouter>
     </Provider>,

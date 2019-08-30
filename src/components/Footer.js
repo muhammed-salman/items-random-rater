@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Footer = (props) => {
+const Footer = () => {
   return(
     <footer className="footer">
         <span className="copyright">
