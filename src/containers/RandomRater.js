@@ -21,12 +21,17 @@ class RandomRater extends Component {
   randomRateItem = () =>{
       if(this.state.rate){ 
         const { updateBooks, books } = this.props;  
+        //selecting item (book) randomly from 0 to 8
         let randomItem = Math.floor(Math.random() * _.size(this.props.books));    
+        //generating random time interval from 100ms to 2000ms
         let randomTime = Math.floor(Math.random() * 1900 + 100);
+        //genrating random rating from 1 to 5
         let randomRating = Math.floor(Math.random() * 5 + 1);
+        //updating the book with random values of rating
         updateBooks({ 'title': books[randomItem].title,'ratings': randomRating });
         $('#rater-message').show()
         .html(`Just rated <em>${books[randomItem].title}</em> to <em>${randomRating} stars</em>. ( Next Rating in ${randomTime}ms )`);
+        //callback again at random time
         setTimeout(this.randomRateItem,randomTime);
       }
       else{
@@ -35,10 +40,13 @@ class RandomRater extends Component {
   }
 
   handleClick = (e) => {
+    //disable/enable the back button depending upon state
     $('#app-link').attr('href',!this.state.rate?'#':'/');
     $('#app-link > button').attr('disabled',!this.state.rate);
+    //display appropraite message to start/stop random rating
     $('#btn-random-rate').text(!this.state.rate?'Stop Random Rating':'Start Random Rating');
     this.setState({rate:!this.state.rate});
+    //initaite the random rating process
     setTimeout(this.randomRateItem,100);
   }
  

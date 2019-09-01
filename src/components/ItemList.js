@@ -11,6 +11,8 @@ class ItemList extends Component{
     generateStars = ratings => {
         let stars = [];
         let i=0,maxRating=5;
+
+        //creating filled stars indicating actual rating 
         while(i<ratings)
             stars.push(
                 <span 
@@ -19,6 +21,8 @@ class ItemList extends Component{
                 >
                 </span>
             );
+        
+        //creating hollow stars for the remaining    
         while(i<maxRating)
             stars.push(
                 <span 
@@ -50,6 +54,8 @@ class ItemList extends Component{
             let i=1;
             books = _.orderBy(books,['ratings'],['desc']);
             
+            //create a single row for each books. 
+            //Disable the Rate It! btn if rendering inside RandomRater indicated by `flag` 
             books.forEach(book => {
                 items.push(
                     <tr key={i}>
