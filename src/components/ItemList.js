@@ -31,7 +31,7 @@ class ItemList extends Component{
         return stars;        
     }
     
-    displayItems = books => {
+    displayItems = (books,flag) => {
         
         let itemsRows=[];
         
@@ -56,8 +56,10 @@ class ItemList extends Component{
                         <td key={book.title}>{book.title}</td>
                         <td key={i+'-ratings'}>{this.generateStars(book.ratings)}</td>
                         <td key={i+'-rateit'}>
-                            <Link to={`/rater/${book.title}`}>
-                                <button className="btn btn-primary">Rate It!</button>
+                            <Link to={flag?'#':`/rater/${book.title}`}>
+                                <button className="btn btn-primary" disabled={flag}>
+                                    Rate It!
+                                </button>
                             </Link>
                         </td> 
                     </tr>
@@ -70,18 +72,18 @@ class ItemList extends Component{
         }
         else{
             return (
-                <tr><td>List of Books is Empty!</td></tr>
+                <tbody><tr><td>List of Books is Empty!</td></tr></tbody>
             );
         }
         
     }
     
     render(){
-        const {books} = this.props;
+        const {books, randomRaterList } = this.props;
         return(
             <div>
                 <table className="table table-hover table-responsive">
-                    {this.displayItems(books)}
+                    {this.displayItems(books,randomRaterList)}
                 </table>
             </div>
         );

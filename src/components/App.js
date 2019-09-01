@@ -18,10 +18,10 @@ class App extends Component {
       if(!books.error)
         return (
           <div>
-            <Link to='randomrater'>
+            <Link id="random-rater-link" to='randomrater'>
               <button className="btn btn-primary mb-3">Go to Random Rater</button>
             </Link>
-            <ItemList books={books} />
+            <ItemList books={books} randomRaterList={false} />
           </div>
         );
       else

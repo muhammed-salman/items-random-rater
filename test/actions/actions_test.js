@@ -1,6 +1,5 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { renderComponent, expect } from '../test_helper';
 import { BOOKS_LOAD,  BOOK_RATED, BOOK_RATED_ERROR } from '../../src/actions/types';
 import { loadBooks, updateBooks  } from '../../src/actions/index';
 

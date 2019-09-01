@@ -72,7 +72,7 @@ class Rater extends Component {
                         Kindly rate this book. 
                     </div>    
                     <h3>{title}</h3>
-                    <div className="mb-3">{this.generateStars(title)}</div>
+                    <div id="book-rating" className="mb-3">{this.generateStars(title)}</div>
                     <div id="rater-message" className="alert alert-success"></div>
                     <div><Link to="/">Back</Link></div>
                 </div>

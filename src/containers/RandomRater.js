@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ItemList from '../components/ItemList';
@@ -26,18 +27,19 @@ class RandomRater extends Component {
         updateBooks({ 'title': books[randomItem].title,'ratings': randomRating });
         $('#rater-message').show()
         .html(`Just rated <em>${books[randomItem].title}</em> to <em>${randomRating} stars</em>. ( Next Rating in ${randomTime}ms )`);
-        $('#btn-random-rate').text('Stop Random Rating');
         setTimeout(this.randomRateItem,randomTime);
       }
       else{
-        $('#rater-message').text('Random Rating Stopped.');
-        $('#btn-random-rate').text('Start Random Rating');  
+        $('#rater-message').text('Random Rating Stopped.');  
       }
   }
 
   handleClick = (e) => {
-      this.setState({rate:!this.state.rate});
-      setTimeout(this.randomRateItem,100);
+    $('#app-link').attr('href',!this.state.rate?'#':'/');
+    $('#app-link > button').attr('disabled',!this.state.rate);
+    $('#btn-random-rate').text(!this.state.rate?'Stop Random Rating':'Start Random Rating');
+    this.setState({rate:!this.state.rate});
+    setTimeout(this.randomRateItem,100);
   }
  
   render(){
@@ -51,9 +53,12 @@ class RandomRater extends Component {
                 onClick={this.handleClick}
             >
                 Start Random Rating
-            </button>  
+            </button> 
+            <Link to="/" id="app-link" className="ml-3">
+              <button className="btn btn-primary mb-3">Back</button>
+            </Link> 
             <div id="rater-message" className="alert alert-success"></div>
-            <ItemList books={books} />
+            <ItemList books={books} randomRaterList={true} />
           </div>
         );
       else

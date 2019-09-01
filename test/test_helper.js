@@ -1,37 +1,31 @@
 import _$ from 'jquery';
-import {JSDOM} from 'jsdom';
-import chai, { expect } from 'chai';
-import chaiJquery from 'chai-jquery';
+import { mount, render, shallow, configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { expect } from 'chai';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
+import { MemoryRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from '../src/reducers';
 
-const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
-global.window = dom.window;
-global.navigator = global.window.navigator;
-global.document = dom.window.document;
+configure({ adapter: new Adapter() });
+global.expect = expect;
+global.mount = mount;
+global.render = render;
+global.shallow = shallow;
 const $ = _$(window);
-
-chaiJquery(chai, chai.util, $);
 
 function renderComponent(ComponentClass, props = {}, state = {}) {
   const componentInstance =  ReactTestUtils.renderIntoDocument(
     <Provider store = {createStore(reducers, state)}>
-      <ComponentClass {...props} />
+      <MemoryRouter>
+        <ComponentClass {...props} />
+      </MemoryRouter>
     </Provider>
   );
-
+  console.log('helper',componentInstance);
   return $(ReactDOM.findDOMNode(componentInstance));
 }
-
-$.fn.simulate = function(eventName, value) {
-  if (value) {
-    this.val(value);
-  }
-  TestUtils.Simulate[eventName](this[0]);
-};
-
-export {renderComponent, expect};
+export {renderComponent};
