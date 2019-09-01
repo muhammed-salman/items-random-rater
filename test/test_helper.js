@@ -8,7 +8,12 @@ import ReactTestUtils from 'react-dom/test-utils';
 import { MemoryRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 import reducers from '../src/reducers';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 configure({ adapter: new Adapter() });
 global.expect = expect;
@@ -28,4 +33,5 @@ function renderComponent(ComponentClass, props = {}, state = {}) {
   console.log('helper',componentInstance);
   return $(ReactDOM.findDOMNode(componentInstance));
 }
-export {renderComponent};
+
+export {renderComponent, mockStore};

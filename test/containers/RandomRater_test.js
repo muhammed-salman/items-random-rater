@@ -1,14 +1,10 @@
 import React from 'react';
-import configureMockStore from 'redux-mock-store';
 import { MemoryRouter, Link } from 'react-router-dom';
-import thunk from 'redux-thunk';
-
 import ItemList from '../../src/components/ItemList';
 import RandomRater from '../../src/containers/RandomRater';
 import { loadBooks } from '../../src/actions/index';
+import { mockStore } from '../test_helper';
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
 let store, books, wrapper, params;
 const orgBooks = [
     {"title": "Html & CSS Design & Build website","ratings": 5},
@@ -24,7 +20,7 @@ const orgBooks = [
 
 describe('<RandomRater/> Component',() => {
     
-    beforeEach(()=>{
+    before(()=>{
         store = mockStore();
         store.dispatch(loadBooks());
         books = store.getActions()[0].payload;

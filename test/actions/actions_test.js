@@ -1,10 +1,6 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { BOOKS_LOAD,  BOOK_RATED, BOOK_RATED_ERROR } from '../../src/actions/types';
 import { loadBooks, updateBooks  } from '../../src/actions/index';
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+import { mockStore } from '../test_helper';
 
 describe('BOOKS_LOAD and BOOK_RATED action',()=>{
     
