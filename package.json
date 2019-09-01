@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Muhammed Salman Shamsi",
+  "homepage": "https://muhammed-salman.github.io/items-random-rater",
   "dependencies": {
     "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",

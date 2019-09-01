@@ -24,7 +24,7 @@ const store = createStore(
   
   ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <AppContainer>
           <Route path="/" exact component={App} />
           <Route path="/rater/:title" component={Rater} />
