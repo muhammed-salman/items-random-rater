@@ -35,4 +35,4 @@ const store = createStore(
     document.querySelector('#root')
   );
   
-serviceWorker.register();
+serviceWorker.unregister();
