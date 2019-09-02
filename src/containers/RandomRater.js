@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ItemList from '../components/ItemList';
 import _ from 'lodash';
-import $ from 'jquery';
+import _$ from 'jquery';
 
 import { updateBooks } from '../actions/index';
 
@@ -29,22 +29,22 @@ class RandomRater extends Component {
         let randomRating = Math.floor(Math.random() * 5 + 1);
         //updating the book with random values of rating
         updateBooks({ 'title': books[randomItem].title,'ratings': randomRating });
-        $('#rater-message').show()
+        _$('#rater-message').show()
         .html(`Just rated <em>${books[randomItem].title}</em> to <em>${randomRating} stars</em>. ( Next Rating in ${randomTime}ms )`);
         //callback again at random time
         setTimeout(this.randomRateItem,randomTime);
       }
       else{
-        $('#rater-message').text('Random Rating Stopped.');  
+        _$('#rater-message').text('Random Rating Stopped.');  
       }
   }
 
   handleClick = (e) => {
     //disable/enable the back button depending upon state
-    $('#app-link').attr('href',!this.state.rate?'#':'/');
-    $('#app-link > button').attr('disabled',!this.state.rate);
+    _$('#app-link').attr('href',!this.state.rate?'#':'/');
+    _$('#app-link > button').attr('disabled',!this.state.rate);
     //display appropraite message to start/stop random rating
-    $('#btn-random-rate').text(!this.state.rate?'Stop Random Rating':'Start Random Rating');
+    _$('#btn-random-rate').text(!this.state.rate?'Stop Random Rating':'Start Random Rating');
     this.setState({rate:!this.state.rate});
     //initaite the random rating process
     setTimeout(this.randomRateItem,100);

@@ -21,10 +21,11 @@ describe('<Rater/> Component',() => {
             );
     });
 
-    it('renders <Rater/> with the given book title',()=>{     
+    it('renders <Rater/> with the given book title and a link to go back.',()=>{     
         expect(wrapper).to.exist;
         expect(wrapper.text()).to.contains('Kindly rate this book.');
         expect(wrapper.find('#book-rating > .far')).to.have.length(5);
+        expect(wrapper.find("a[href='/']")).to.have.length(1);
     });
 
     it('<Rater/> allows rating the book',()=>{

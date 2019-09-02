@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import $ from 'jquery';
+import _$ from 'jquery';
 
 import { updateBooks } from '../actions/index';
 
@@ -16,36 +16,36 @@ class Rater extends Component {
     }
 
     rateItem = (e,title) => {
-        let id = $(e.target).attr('id');
+        let id = _$(e.target).attr('id');
         //remove all previous clicked attributes if any
         for(let i=1;i<=5;i++)
-            $(`#${i}`).removeAttr('clicked');
+            _$(`#${i}`).removeAttr('clicked');
         //attaching clicked attribute to the stars having id 1 to the clicked star
         for(let i=1;i<=id;i++)
-            $(`#${i}`).attr('clicked',true);
+            _$(`#${i}`).attr('clicked',true);
         //actually updating the rating of the book    
         this.props.updateBooks({title,'ratings':Number(id)});
 
-        $('#rater-message').show().text('Thanks! Your rating is successfully recorded.'); 
+        _$('#rater-message').show().text('Thanks! Your rating is successfully recorded.'); 
     }
 
     fillStars = (e) => {
-        let element = $(e.target);
+        let element = _$(e.target);
         let id = element.attr('id');
         //displaying the empty stars (which does not have clicked attribute)
         for(let i=1;i<=5;i++)
-            $(`#${i}`).not('[clicked]').removeClass('fas').addClass('far');
+            _$(`#${i}`).not('[clicked]').removeClass('fas').addClass('far');
         //displaying filled stars for all the stars from id 1 to the hovered star
         for(let i=1;i<=id;i++)
-            $(`#${i}`).removeClass('far').addClass('fas');
+            _$(`#${i}`).removeClass('far').addClass('fas');
     }
 
     unfillStars = (e) => {
-        let element = $(e.target);
+        let element = _$(e.target);
         let id = element.attr('id');
         //unfill the stars which does not have clicked a clicked attribute
         for(let i=1;i<=5;i++)
-            $(`#${i}`).not('[clicked]').removeClass('fas').addClass('far');  
+            _$(`#${i}`).not('[clicked]').removeClass('fas').addClass('far');  
     }
 
     generateStars = (title) => {

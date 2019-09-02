@@ -47,6 +47,7 @@ describe('<RandomRater/> Component',() => {
             expect(orgBooks).to.be.not.deep.equal(wrapper.props().children.props.books);
         },200);   
     });
+    
     after(()=>{
        wrapper.detach(); 
     });

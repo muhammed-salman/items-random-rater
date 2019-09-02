@@ -34,4 +34,11 @@ describe('<App/> Component',() => {
         wrapper.find('a#random-rater-link').simulate('click',{ button: 0 });
         expect(wrapper.find('#btn-random-rate')).to.have.length(1);
     });
+
+    it('<App /> displays error if any',()=>{
+        const error={'error': 'Not able to load books.'};
+        wrapper = mount(<App store={store} books={error} />);
+        expect(wrapper.text()).to.contains('Not able to load books.');
+    });
+    
 });

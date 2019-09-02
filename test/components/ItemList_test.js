@@ -16,7 +16,7 @@ describe('<ItemList/> Component',() => {
         params = { 'params': {'title' : 'Html & CSS Design & Build website' } };
     });
 
-    it('renders <ItemList/> with books list (10 items)',()=>{     
+    it('renders <ItemList/> with a table of books list (10 items)',()=>{     
         wrapper = mount(
                     <MemoryRouter>
                         <Route path="/rater/:title" render={()=><Rater store={store} books={books} match={params}/>} />
@@ -27,6 +27,9 @@ describe('<ItemList/> Component',() => {
         expect(wrapper.find('table')).to.have.length(1);
         expect(wrapper.find('tr')).to.have.length(10);
         expect(wrapper.find('th')).to.have.length(3);
+        expect(wrapper.find('th').at(0).text()).to.equal('Title');
+        expect(wrapper.find('th').at(1).text()).to.equal('Ratings');
+        expect(wrapper.find('th').at(2).text()).to.equal('Rate');
         expect(wrapper.find('td')).to.have.length(27);
         expect(wrapper.find('button')).to.have.length(9);
         expect(wrapper.text()).to.contains('Rate It!');
@@ -47,6 +50,15 @@ describe('<ItemList/> Component',() => {
                     );
         expect(wrapper.text()).to.contains('List of Books is Empty!');
     });
-    
+    it('renders <ItemList/> with disabled RateIt! button in case of <RandomRater/>',()=>{     
+        wrapper = mount(
+                    <MemoryRouter>
+                        <ItemList books={books} randomRaterList={true} />
+                    </MemoryRouter>
+                    );
+        expect(wrapper).to.exist;
+        expect(wrapper.text()).to.contains('Rate It!');
+        expect(wrapper.find('button').filter('[disabled=true]')).to.have.length(9);
+    });
 
 });
